@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creer un site sur GitHub</title>
+  <meta
+    name="description"
+    content="Guide simple pour creer un site HTML et le publier gratuitement avec GitHub Pages."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Fredoka:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+  <div class="page-shell">
+    <span class="secret-spark secret-spark-one" aria-hidden="true"></span>
+    <span class="secret-spark secret-spark-two" aria-hidden="true"></span>
+    <span class="secret-spark secret-spark-three" aria-hidden="true"></span>
+    <header class="hero">
+      <div class="container">
+        <div class="topbar">
+          <button
+            class="badge secret-trigger"
+            id="secret-trigger"
+            type="button"
+            aria-pressed="false"
+            title="Clique plusieurs fois pour voir un secret"
+          >
+            Guide GitHub Pages
+          </button>
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-controls="site-nav"
+            aria-expanded="false"
+          >
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+          </button>
+          <nav class="nav" id="site-nav" aria-label="Navigation principale">
+            <a href="#demarrage">Demarrage</a>
+            <a href="#etapes">Etapes</a>
+            <a href="#commandes">Commandes</a>
+            <a href="#erreurs">Erreurs</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Publier un site gratuitement</p>
+            <h1>Creer un site sur GitHub en quelques etapes</h1>
+            <p>
+              Cette page t'explique comment preparer un site HTML simple, l'envoyer sur GitHub
+              et l'afficher en ligne avec GitHub Pages. Pas besoin de serveur complique :
+              un depot, quelques fichiers, puis publication.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#etapes">Voir le guide</a>
+              <a class="button button-secondary" href="#commandes">Copier les commandes</a>
+            </div>
+            <p class="secret-status" id="secret-status" aria-live="polite">
+              Psst... clique 3 fois sur le badge du haut pour activer un mode secret.
+            </p>
+            <div class="secret-banner" id="secret-banner" hidden>
+              <strong>Mode secret</strong>
+              <p>
+                Tu as trouve la surprise. Le vrai secret d'un bon site: commencer simple, publier
+                vite, puis ameliorer petit a petit.
+              </p>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Resume rapide">
+            <div class="mini-card">
+              <h2>Ce qu'il faut</h2>
+              <p>Un compte GitHub, un dossier avec `index.html`, puis un depot public ou prive.</p>
+              <ul class="checklist">
+                <li>Creer un nouveau depot sur GitHub</li>
+                <li>Ajouter les fichiers HTML, CSS et images</li>
+                <li>Activer GitHub Pages dans les parametres</li>
+              </ul>
+            </div>
+            <div class="mini-card">
+              <div class="secret-card-head">
+                <h2>Coin secret</h2>
+                <button class="secret-button" id="secret-button" type="button">Reveler</button>
+              </div>
+              <p class="secret-message" id="secret-message">
+                Clique sur le bouton pour afficher un petit secret de createur de site.
+              </p>
+            </div>
+            <div class="quick-code" aria-label="Commande rapide">
+<code>git init
+git add .
+git commit -m "Premier site"
+git branch -M main
+git remote add origin https://github.com/ton-compte/ton-site.git
+git push -u origin main</code>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="demarrage">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Avant de commencer</p>
+              <h2>Le principe</h2>
+            </div>
+            <p>
+              GitHub peut heberger gratuitement des pages statiques. Cela veut dire qu'un site
+              en HTML, CSS et JavaScript peut etre mis en ligne directement depuis un depot.
+            </p>
+          </div>
+
+          <div class="steps">
+            <article class="step">
+              <span>1</span>
+              <h3>Prepare le dossier</h3>
+              <p>Ton site doit contenir au minimum un fichier `index.html`. C'est la page d'accueil.</p>
+            </article>
+            <article class="step">
+              <span>2</span>
+              <h3>Cree un depot</h3>
+              <p>Sur GitHub, cree un nouveau repository pour stocker les fichiers de ton site.</p>
+            </article>
+            <article class="step">
+              <span>3</span>
+              <h3>Envoie les fichiers</h3>
+              <p>Utilise Git pour pousser ton dossier local sur GitHub depuis le terminal.</p>
+            </article>
+            <article class="step">
+              <span>4</span>
+              <h3>Active Pages</h3>
+              <p>Dans `Settings > Pages`, choisis la branche `main` et le dossier racine.</p>
+            </article>
+          </div>
+
+          <div class="launchpad">
+            <article class="check-card">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Checklist express</p>
+                  <h3>Ou en es-tu ?</h3>
+                </div>
+                <p class="task-counter" id="task-counter">0/4 terminees</p>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <ul class="task-list">
+                <li class="task-item">
+                  <label>
+                    <input class="task-check" type="checkbox">
+                    <span>J'ai cree mon fichier `index.html`.</span>
+                  </label>
+                </li>
+                <li class="task-item">
+                  <label>
+                    <input class="task-check" type="checkbox">
+                    <span>J'ai cree un repository sur GitHub.</span>
+                  </label>
+                </li>
+                <li class="task-item">
+                  <label>
+                    <input class="task-check" type="checkbox">
+                    <span>J'ai pousse mes fichiers avec Git.</span>
+                  </label>
+                </li>
+                <li class="task-item">
+                  <label>
+                    <input class="task-check" type="checkbox">
+                    <span>J'ai active GitHub Pages dans les parametres.</span>
+                  </label>
+                </li>
+              </ul>
+              <p class="task-note" id="task-note">Coche chaque etape au fur et a mesure pour suivre ton lancement.</p>
+            </article>
+
+            <article class="structure-card">
+              <p class="eyebrow">Structure conseillee</p>
+              <h3>Le dossier de base</h3>
+              <p>Un site simple peut rester tres leger. Voici une structure claire pour commencer sans te perdre.</p>
+              <pre><code>mon-site/
+index.html
+style.css
+script.js
+images/
+  logo.png</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="etapes">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Le parcours complet</p>
+              <h2>Etape par etape</h2>
+            </div>
+            <p>
+              Voici le chemin le plus simple si tu debutes et que tu veux publier un premier site
+              statique sans framework.
+            </p>
+          </div>
+
+          <div class="journey">
+            <article class="timeline">
+              <h3>Publication avec GitHub Pages</h3>
+              <ol class="timeline-list">
+                <li>
+                  <strong>Etape 01</strong>
+                  <div>
+                    <h3>Creer les fichiers du site</h3>
+                    <p>
+                      Commence avec `index.html`. Si tu veux, ajoute aussi `style.css` et un dossier
+                      `images`. Verifie que la page s'ouvre bien en local.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <strong>Etape 02</strong>
+                  <div>
+                    <h3>Initialiser Git</h3>
+                    <p>
+                      Ouvre un terminal dans le dossier du site, lance `git init`, ajoute les fichiers,
+                      puis cree un premier commit.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <strong>Etape 03</strong>
+                  <div>
+                    <h3>Connecter GitHub</h3>
+                    <p>
+                      Cree ton depot en ligne, copie l'URL et ajoute-la avec `git remote add origin ...`.
+                      Ensuite, pousse la branche `main`.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <strong>Etape 04</strong>
+                  <div>
+                    <h3>Activer la publication</h3>
+                    <p>
+                      Va dans les parametres du depot puis dans `Pages`. Choisis `Deploy from a branch`,
+                      selectionne `main` et le dossier `/root`.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <strong>Etape 05</strong>
+                  <div>
+                    <h3>Recuperer le lien</h3>
+                    <p>
+                      GitHub genere une adresse du type
+                      `https://ton-compte.github.io/nom-du-depot/`. Au bout de quelques instants,
+                      ton site devient accessible.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </article>
+
+            <aside class="tips">
+              <h3>Conseils utiles</h3>
+              <ul>
+                <li>Le nom du fichier doit etre exactement `index.html` pour la page d'accueil.</li>
+                <li>Si les modifications ne s'affichent pas, attends une minute puis recharge la page.</li>
+                <li>Evite les espaces dans les noms de fichiers. Prefere `mon-site` ou `images/logo.png`.</li>
+                <li>Chaque changement local doit etre ajoute, committe puis pousse pour mettre le site a jour.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="commandes">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Le terminal</p>
+              <h2>Les commandes a utiliser</h2>
+            </div>
+            <p>
+              Remplace l'URL par celle de ton propre depot GitHub. Tu peux copier ce bloc tel quel
+              puis adapter le nom du repository.
+            </p>
+          </div>
+
+          <div class="commands-wrap">
+            <article class="command-card">
+              <div class="command-top">
+                <div>
+                  <h3>Premier envoi du site</h3>
+                  <p>Utilise ces commandes si tu pars d'un dossier local deja pret.</p>
+                </div>
+                <button class="copy-button" type="button" data-copy-target="command-first">Copier</button>
+              </div>
+              <pre><code id="command-first">git init
+git add .
+git commit -m "Ajout du site"
+git branch -M main
+git remote add origin https://github.com/ton-compte/ton-repo.git
+git push -u origin main</code></pre>
+            </article>
+
+            <article class="command-card">
+              <div class="command-top">
+                <div>
+                  <h3>Mise a jour du site</h3>
+                  <p>Quand tu modifies tes fichiers, il suffit ensuite de refaire ceci.</p>
+                </div>
+                <button class="copy-button" type="button" data-copy-target="command-update">Copier</button>
+              </div>
+              <pre><code id="command-update">git add .
+git commit -m "Mise a jour du site"
+git push</code></pre>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="erreurs">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Blocages courants</p>
+              <h2>Erreurs frequentes</h2>
+            </div>
+            <p>
+              Si ton site ne sort pas comme prevu, regarde ici d'abord. Ce sont les problemes les
+              plus classiques quand on publie son premier projet sur GitHub Pages.
+            </p>
+          </div>
+
+          <div class="error-grid">
+            <article class="error-card">
+              <span class="error-tag">404 au chargement</span>
+              <h3>La page d'accueil n'est pas trouvee</h3>
+              <p>
+                GitHub Pages cherche surtout un fichier `index.html` a la racine du projet ou du
+                dossier publie.
+              </p>
+              <p class="error-fix">Correction: verifie le nom exact `index.html` et son emplacement.</p>
+            </article>
+
+            <article class="error-card">
+              <span class="error-tag">Pages inactive</span>
+              <h3>Le depot existe mais rien n'est en ligne</h3>
+              <p>
+                Pousser les fichiers ne suffit pas toujours. Il faut aussi activer GitHub Pages
+                dans les parametres du repository.
+              </p>
+              <p class="error-fix">Correction: ouvre `Settings > Pages`, choisis `main` puis `/root`.</p>
+            </article>
+
+            <article class="error-card">
+              <span class="error-tag">Ancienne version</span>
+              <h3>Les changements ne s'affichent pas</h3>
+              <p>
+                Soit le dernier `git push` n'a pas ete fait, soit le deploiement est encore en
+                cours, soit le navigateur garde l'ancienne page en cache.
+              </p>
+              <p class="error-fix">Correction: refais `git add`, `commit`, `push`, puis recharge la page.</p>
+            </article>
+
+            <article class="error-card">
+              <span class="error-tag">Images cassees</span>
+              <h3>Les fichiers ne se chargent pas</h3>
+              <p>
+                Les chemins peuvent etre faux, surtout si le nom du fichier change entre majuscules
+                et minuscules ou si le dossier n'est pas au bon endroit.
+              </p>
+              <p class="error-fix">Correction: garde des noms simples comme `images/logo.png`.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Questions frequentes</p>
+              <h2>FAQ rapide</h2>
+            </div>
+            <p>
+              Quelques reponses simples aux blocages les plus courants quand on commence avec
+              GitHub Pages.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-list">
+              <details open>
+                <summary>Pourquoi mon site ne s'affiche pas tout de suite ?</summary>
+                <p>
+                  La publication prend parfois quelques dizaines de secondes. Recharge la page un peu
+                  plus tard et verifie dans `Settings > Pages` que le deploiement est bien termine.
+                </p>
+              </details>
+              <details>
+                <summary>Faut-il payer pour publier un site simple ?</summary>
+                <p>
+                  Non. GitHub Pages permet de publier gratuitement un site statique compose de fichiers
+                  HTML, CSS et JavaScript.
+                </p>
+              </details>
+              <details>
+                <summary>Puis-je utiliser mon propre nom de domaine ?</summary>
+                <p>
+                  Oui. GitHub Pages permet aussi d'ajouter un domaine personnalise dans les parametres
+                  du depot.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Site de demonstration pour apprendre a publier avec GitHub Pages.
+          Documentation officielle :
+          <a href="https://pages.github.com/" target="_blank" rel="noreferrer">pages.github.com</a>
+        </p>
+        <p class="footer-secret">Indice: le badge tout en haut n'est pas juste decoratif.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const topbar = document.querySelector(".topbar");
+    const nav = document.getElementById("site-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+    const secretTrigger = document.getElementById("secret-trigger");
+    const secretButton = document.getElementById("secret-button");
+    const secretMessage = document.getElementById("secret-message");
+    const secretStatus = document.getElementById("secret-status");
+    const secretBanner = document.getElementById("secret-banner");
+    const copyButtons = document.querySelectorAll(".copy-button");
+    const taskChecks = document.querySelectorAll(".task-check");
+    const progressFill = document.getElementById("progress-fill");
+    const taskCounter = document.getElementById("task-counter");
+    const taskNote = document.getElementById("task-note");
+
+    const secretFacts = [
+      "Petit secret: un simple fichier index.html suffit pour lancer ton premier site.",
+      "Astuce cachee: garde les noms de fichiers en minuscules pour eviter des bugs en ligne.",
+      "Secret de dev: un commit clair vaut mieux qu'un gros commit brouillon.",
+      "Truc discret: si ton site ne se met pas a jour, force un rechargement du navigateur."
+    ];
+    const checklistStorageKey = "github-pages-guide-checklist";
+    const mobileMenuQuery = window.matchMedia("(max-width: 720px)");
+
+    let secretIndex = 0;
+    let triggerClicks = 0;
+    let triggerTimer;
+
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise(function (resolve, reject) {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "absolute";
+        helper.style.left = "-9999px";
+        document.body.appendChild(helper);
+        helper.select();
+
+        try {
+          const successful = document.execCommand("copy");
+          document.body.removeChild(helper);
+          if (successful) {
+            resolve();
+          } else {
+            reject(new Error("copy_failed"));
+          }
+        } catch (error) {
+          document.body.removeChild(helper);
+          reject(error);
+        }
+      });
+    }
+
+    function setSecretMode(enabled) {
+      document.body.classList.toggle("secret-mode", enabled);
+      secretTrigger.setAttribute("aria-pressed", enabled ? "true" : "false");
+      secretBanner.hidden = !enabled;
+      secretStatus.textContent = enabled
+        ? "Mode secret actif. Reclique 3 fois sur le badge pour revenir au theme normal."
+        : "Psst... clique 3 fois sur le badge du haut pour activer un mode secret.";
+    }
+
+    function setMobileMenu(open) {
+      if (!topbar || !menuToggle || !nav) {
+        return;
+      }
+
+      topbar.classList.toggle("menu-open", open);
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      menuToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      nav.setAttribute("aria-hidden", open ? "false" : "true");
+    }
+
+    function syncMobileMenu() {
+      if (!topbar || !menuToggle || !nav) {
+        return;
+      }
+
+      if (mobileMenuQuery.matches) {
+        const isOpen = topbar.classList.contains("menu-open");
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
+        nav.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      } else {
+        topbar.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+        nav.removeAttribute("aria-hidden");
+      }
+    }
+
+    function updateChecklist() {
+      const total = taskChecks.length;
+      const completed = Array.from(taskChecks).filter(function (input) {
+        return input.checked;
+      }).length;
+      const percent = total ? (completed / total) * 100 : 0;
+
+      progressFill.style.width = percent + "%";
+      taskCounter.textContent = completed + "/" + total + " terminees";
+
+      taskChecks.forEach(function (input) {
+        input.closest(".task-item").classList.toggle("done", input.checked);
+      });
+
+      if (completed === total) {
+        taskNote.textContent = "Tout est coche. Tu es pret a publier ton site en ligne.";
+      } else if (completed > 0) {
+        taskNote.textContent = "Bien parti. Continue les etapes restantes pour mettre le site en ligne.";
+      } else {
+        taskNote.textContent = "Coche chaque etape au fur et a mesure pour suivre ton lancement.";
+      }
+
+      try {
+        localStorage.setItem(
+          checklistStorageKey,
+          JSON.stringify(Array.from(taskChecks).map(function (input) {
+            return input.checked;
+          }))
+        );
+      } catch (error) {
+        return;
+      }
+    }
+
+    copyButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) {
+          return;
+        }
+
+        const originalLabel = button.textContent;
+
+        copyText(target.textContent)
+          .then(function () {
+            button.textContent = "Copie";
+            button.classList.add("copied");
+          })
+          .catch(function () {
+            button.textContent = "Erreur";
+            button.classList.add("failed");
+          })
+          .finally(function () {
+            window.setTimeout(function () {
+              button.textContent = originalLabel;
+              button.classList.remove("copied", "failed");
+            }, 1600);
+          });
+      });
+    });
+
+    taskChecks.forEach(function (input, index) {
+      input.addEventListener("change", updateChecklist);
+
+      try {
+        const saved = JSON.parse(localStorage.getItem(checklistStorageKey) || "[]");
+        input.checked = Boolean(saved[index]);
+      } catch (error) {
+        input.checked = false;
+      }
+    });
+
+    updateChecklist();
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", function () {
+        setMobileMenu(!topbar.classList.contains("menu-open"));
+      });
+
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (mobileMenuQuery.matches) {
+            setMobileMenu(false);
+          }
+        });
+      });
+
+      if (typeof mobileMenuQuery.addEventListener === "function") {
+        mobileMenuQuery.addEventListener("change", syncMobileMenu);
+      } else if (typeof mobileMenuQuery.addListener === "function") {
+        mobileMenuQuery.addListener(syncMobileMenu);
+      }
+
+      syncMobileMenu();
+    }
+
+    secretButton.addEventListener("click", function () {
+      secretMessage.textContent = secretFacts[secretIndex];
+      secretIndex = (secretIndex + 1) % secretFacts.length;
+    });
+
+    secretTrigger.addEventListener("click", function () {
+      triggerClicks += 1;
+      window.clearTimeout(triggerTimer);
+      triggerTimer = window.setTimeout(function () {
+        triggerClicks = 0;
+      }, 1000);
+
+      if (triggerClicks === 3) {
+        const nextState = !document.body.classList.contains("secret-mode");
+        setSecretMode(nextState);
+        triggerClicks = 0;
+        window.clearTimeout(triggerTimer);
+      }
+    });
+  </script>
+</body>
+</html>
